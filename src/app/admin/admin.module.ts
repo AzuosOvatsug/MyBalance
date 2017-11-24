@@ -16,7 +16,18 @@ import {ListaDeTurmasComponent} from './lista-de-turmas/lista-de-turmas.componen
 import {TurmaComponent} from './turma/turma.component';
 import {DisciplinasService} from './disciplinas.service';
 import {TurmasService} from './turmas.service';
+import {PessoasService} from './pessoas.service';
+import {ProfessoresService} from './professores.service';
 import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada/pagina-nao-encontrada.component';
+import { PessoaComponent } from './pessoa/pessoa.component';
+import { ListaDePessoasComponent } from './lista-de-pessoas/lista-de-pessoas.component';
+import { CadastroPessoaComponent } from './cadastro-pessoa/cadastro-pessoa.component';
+import { EditarPessoaComponent } from './editar-pessoa/editar-pessoa.component';
+import { ProfessorComponent } from './professor/professor.component';
+import { ListaDeProfessoresComponent } from './lista-de-professores/lista-de-professores.component';
+import { CadastroProfessorComponent } from './cadastro-professor/cadastro-professor.component';
+import { EditarProfessorComponent } from './editar-professor/editar-professor.component';
+
 
 @NgModule({
   imports: [
@@ -36,11 +47,21 @@ import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada/pagina-nao
     ListaDeDisciplinasComponent,
     ListaDeTurmasComponent,
     TurmaComponent,
-    PaginaNaoEncontradaComponent
+    PaginaNaoEncontradaComponent,
+    PessoaComponent,
+    ListaDePessoasComponent,
+    CadastroPessoaComponent,
+    EditarPessoaComponent,
+    ProfessorComponent,
+    ListaDeProfessoresComponent,
+    CadastroProfessorComponent,
+    EditarProfessorComponent
   ],
   providers: [
     DisciplinasService,
-    TurmasService
+    TurmasService,
+    PessoasService,
+    ProfessoresService
   ]
 })
 export class AdminModule {

@@ -9,6 +9,14 @@ import {TurmaComponent} from './turma/turma.component';
 import {CadastroDeDisciplinaComponent} from './cadastro-de-disciplina/cadastro-de-disciplina.component';
 import {CadastroDeTurmaComponent} from './cadastro-de-turma/cadastro-de-turma.component';
 import {PaginaNaoEncontradaComponent} from './pagina-nao-encontrada/pagina-nao-encontrada.component';
+import {PessoaComponent} from './pessoa/pessoa.component';
+import {ListaDePessoasComponent} from './lista-de-pessoas/lista-de-pessoas.component';
+import {CadastroPessoaComponent} from './cadastro-pessoa/cadastro-pessoa.component';
+import {EditarPessoaComponent} from './editar-pessoa/editar-pessoa.component';
+import {ProfessorComponent} from './professor/professor.component';
+import {ListaDeProfessoresComponent} from './lista-de-professores/lista-de-professores.component';
+import {CadastroProfessorComponent} from './cadastro-professor/cadastro-professor.component';
+import {EditarProfessorComponent} from './editar-professor/editar-professor.component';
 
 const routes: Routes = [
   {
@@ -20,6 +28,14 @@ const routes: Routes = [
       {path: 'cadastrar-turma', component: CadastroDeTurmaComponent},
       {path: 'turmas', component: ListaDeTurmasComponent},
       {path: 'turmas/:id', component: TurmaComponent},
+      {path: 'pessoas', component: ListaDePessoasComponent},
+      {path: 'pessoas/:id', component: PessoaComponent},
+      {path: 'cadastro-pessoa', component: CadastroPessoaComponent},
+      {path: 'pessoas/:id/editar', component: EditarPessoaComponent},
+      {path: 'professores', component: ListaDeProfessoresComponent},
+      {path: 'professores/:id', component: ProfessorComponent},
+      {path: 'cadastro-professor', component: CadastroProfessorComponent},
+      {path: 'professores/:id/editar', component: EditarProfessorComponent},
       {path: '', component: HomeComponent},
       {path: '**', component: PaginaNaoEncontradaComponent}
   ]}

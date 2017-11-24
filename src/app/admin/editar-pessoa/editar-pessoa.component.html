@@ -1,0 +1,16 @@
+<h1>Alterar Informações</h1>
+<hr>
+<div class="alert alert-success" *ngIf="editar_ok">
+  <strong>Alterações realizadas com sucesso! </strong>
+  Continue editando outra ou <a routerLink="/admin/pessoas">volte para a lista de pessoas</a>
+</div>
+<div class="alert alert-danger" *ngIf="editar_erro">
+  <strong>Opa!</strong> Aconteceu um erro ao tentar fazer a alteração. Aguarde alguns instantes e tente novamente.
+</div>
+<form #editar="ngForm" (submit)="editar()">
+  <div class="form-group">
+    <label for="nome">Nome</label>
+    <input type="text" name="nome" id="nome" class="form-control" placeholder="{{pessoa.nome}}" [(ngModel)]="nome" required>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!editar.valid">Salvar</button>
+</form>

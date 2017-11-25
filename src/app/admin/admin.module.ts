@@ -8,25 +8,12 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {SharedModule} from '../shared/shared.module';
-import {CadastroDeDisciplinaComponent} from './cadastro-de-disciplina/cadastro-de-disciplina.component';
-import {CadastroDeTurmaComponent} from './cadastro-de-turma/cadastro-de-turma.component';
-import {DisciplinaComponent} from './disciplina/disciplina.component';
-import {ListaDeDisciplinasComponent} from './lista-de-disciplinas/lista-de-disciplinas.component';
-import {ListaDeTurmasComponent} from './lista-de-turmas/lista-de-turmas.component';
-import {TurmaComponent} from './turma/turma.component';
+import {UsuarioComponent} from './usuario/usuario.component';
 import {DisciplinasService} from './disciplinas.service';
 import {TurmasService} from './turmas.service';
 import {PessoasService} from './pessoas.service';
 import {ProfessoresService} from './professores.service';
 import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada/pagina-nao-encontrada.component';
-import { PessoaComponent } from './pessoa/pessoa.component';
-import { ListaDePessoasComponent } from './lista-de-pessoas/lista-de-pessoas.component';
-import { CadastroPessoaComponent } from './cadastro-pessoa/cadastro-pessoa.component';
-import { EditarPessoaComponent } from './editar-pessoa/editar-pessoa.component';
-import { ProfessorComponent } from './professor/professor.component';
-import { ListaDeProfessoresComponent } from './lista-de-professores/lista-de-professores.component';
-import { CadastroProfessorComponent } from './cadastro-professor/cadastro-professor.component';
-import { EditarProfessorComponent } from './editar-professor/editar-professor.component';
 
 
 @NgModule({
@@ -41,21 +28,8 @@ import { EditarProfessorComponent } from './editar-professor/editar-professor.co
   declarations: [
     HomeComponent,
     AdminComponent,
-    CadastroDeDisciplinaComponent,
-    CadastroDeTurmaComponent,
-    DisciplinaComponent,
-    ListaDeDisciplinasComponent,
-    ListaDeTurmasComponent,
-    TurmaComponent,
-    PaginaNaoEncontradaComponent,
-    PessoaComponent,
-    ListaDePessoasComponent,
-    CadastroPessoaComponent,
-    EditarPessoaComponent,
-    ProfessorComponent,
-    ListaDeProfessoresComponent,
-    CadastroProfessorComponent,
-    EditarProfessorComponent
+    UsuarioComponent,
+    PaginaNaoEncontradaComponent
   ],
   providers: [
     DisciplinasService,

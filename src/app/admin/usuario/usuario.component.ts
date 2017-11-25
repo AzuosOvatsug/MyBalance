@@ -1,13 +1,15 @@
 import {Component, OnInit} from '@angular/core';
 import {DisciplinasService} from "../disciplinas.service";
 import {TurmasService} from "../turmas.service";
+import {AuthService} from "../../shared/auth.service";
 
 @Component({
-  selector: 'app-cadastro-de-turma',
-  templateUrl: './cadastro-de-turma.component.html',
-  styleUrls: ['./cadastro-de-turma.component.css']
+  selector: 'app-usuario',
+  templateUrl: './usuario.component.html',
+  styleUrls: ['./usuario.component.css']
 })
-export class CadastroDeTurmaComponent implements OnInit {
+export class UsuarioComponent implements OnInit {
+  usuario;
   disciplinas = null;
   codigo;
   ano;
@@ -15,17 +17,17 @@ export class CadastroDeTurmaComponent implements OnInit {
   cadastro_ok = false;
   cadastro_erro = false;
 
-  constructor(private disciplinasService: DisciplinasService,
-              private turmasService: TurmasService) {
+  constructor(private usuarioService: AuthService) {
   }
 
   ngOnInit() {
-    this.disciplinasService.getDisciplinas()
-      .subscribe(disciplinas => this.disciplinas = disciplinas);
+    this.usuarioService.get()
+      .subscribe(usuario => this.usuario = usuario);
+    this.usuario = this.usuarioService.get();
   }
 
   salvar() {
-    this.turmasService.save(this.codigo, parseInt(this.disciplina), this.ano)
+    this.usuarioService.get()
       .subscribe(
         turma => {
           this.limpar();

@@ -4,18 +4,18 @@
 <div class="alert alert-danger" *ngIf="editar_erro">
   <strong>Opa!</strong> Aconteceu um erro ao tentar alterar os dados. Aguarde alguns instantes e tente novamente.
 </div>
-<form (submit)="salvar()">
+<form>
   <div class="form-group">
     <label for="codigo">Nome</label>
-    <input type="text" name="nome" id="nome" class="form-control" placeholder="{{usuario.nome}}" [(ngModel)]="nome" >
+    <input type="text" name="nome" id="nome" class="form-control" [(ngModel)]="nome" >
   </div>
   <div class="form-group">
     <label for="ano">Email</label>
-    <input type="email" name="email" id="email" class="form-control" placeholder="{{usuario.nome}}" [(ngModel)]="email">
+    <input type="email" name="email" id="email" class="form-control" [(ngModel)]="email">
   </div>
   <div class="form-group">
     <label for="ano">Senha</label>
-    <input type="password" name="senha" id="senha" class="form-control" placeholder="{{usuario.nome}}" [(ngModel)]="senha">
+    <input type="password" name="senha" id="senha" class="form-control"  [(ngModel)]="senha">
   </div>
   <div class="form-group">
     <label for="ano">Data de Nascimento</label>
@@ -23,15 +23,15 @@
   </div>
   <div class="form-group">
     <label for="ano">Altura</label>
-    <input type="number" name="altura" id="altura" class="form-control" placeholder="{{usuario.nome}}" [(ngModel)]="altura">
+    <input type="number" name="altura" id="altura" class="form-control" [(ngModel)]="altura">
   </div>
   <div class="form-group">
     <label for="ano">Peso</label>
-    <input type="number" name="peso" id="peso" class="form-control" placeholder="{{usuario.nome}}" [(ngModel)]="peso">
+    <input type="number" name="peso" id="peso" class="form-control" [(ngModel)]="peso">
   </div>
   <div class="form-group">
     <label for="ano">Sexo</label>
-    <input type="text" name="sexo" id="sexo" class="form-control" placeholder="{{usuario.nome}}" [(ngModel)]="sexo">
+    <input type="text" name="sexo" id="sexo" class="form-control" [(ngModel)]="sexo">
   </div>
-  <button class="btn btn-primary">Salvar</button>
+  <button (click)="editar()" class="btn btn-primary">Salvar</button>
 </form>

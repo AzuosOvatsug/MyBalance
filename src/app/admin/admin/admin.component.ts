@@ -16,7 +16,7 @@ export class AdminComponent implements OnInit {
   ngOnInit() {
     this.usuario = this.authService.get();
     if (!this.usuario) {
-      this.router.navigate(['']); //AQUI É ONDE FICA A AUTENTICAÇÃO, SE DESCOMENTAR, NÃO É POSSIVEL NAVEGAR POR LINK
+      //this.router.navigate(['']); //AQUI É ONDE FICA A AUTENTICAÇÃO, SE DESCOMENTAR, NÃO É POSSIVEL NAVEGAR POR LINK
     }
   }
 

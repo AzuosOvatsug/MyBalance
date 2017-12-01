@@ -9,7 +9,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  usuario: string;
+  email: string;
   senha: string;
   erro = null;
 
@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   }
 
   entrar() {
-    this.authService.auth(this.usuario, this.senha)
+    this.authService.auth(this.email, this.senha)
       .subscribe(usuarios => {
         if (usuarios.length > 0) {
           this.erro = null;

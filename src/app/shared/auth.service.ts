@@ -11,8 +11,8 @@ export class AuthService {
   constructor(private http: HttpClient) {
   }
 
-  auth(login: string, senha: string): Observable<any[]> {
-    const qs = 'nome=' + login + '&senha=' + senha;
+  auth(email: string, senha: string): Observable<any[]> {
+    const qs = 'login=' + email + '&senha=' + senha;
     return this.http.get<any[]>(this.API_URL + '/usuarios?' + qs);
   }
 
@@ -22,6 +22,16 @@ export class AuthService {
 
   get() {
     return this.user;
+  }
+
+  getuser(id:number){
+    return this.http.get<any>(this.API_URL + '/usuarios/' + id);
+  }
+
+  updateUser(id:number, nome: String, email: String, senha: String, datanasc: Date, altura: number, peso: number, sexo: String): Observable<any>{
+    const usuario = {'nome':nome, 'email': email, 'senha': senha, 'datanasc': datanasc, 'altura': altura, 'peso': peso, 'sexo': sexo}
+    return this.http.patch(this.API_URL + '/usuarios/' + id, usuario);
+
   }
 
   clear() {

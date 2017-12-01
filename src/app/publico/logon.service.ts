@@ -8,8 +8,8 @@ export class LogonService {
   constructor(private http: HttpClient) {
   }
 
-  autenticar(login: string, senha: string) {
-    const qs = 'nome=' + login + '&senha=' + senha;
+  autenticar(email: string, senha: string) {
+    const qs = 'login=' + email + '&senha=' + senha;
     return this.http.get(this.API_URL + '/usuarios?' + qs);
   }
 

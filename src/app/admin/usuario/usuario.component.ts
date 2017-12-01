@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {DisciplinasService} from "../disciplinas.service";
-import {TurmasService} from "../turmas.service";
 import {AuthService} from "../../shared/auth.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-usuario',
@@ -10,41 +9,46 @@ import {AuthService} from "../../shared/auth.service";
 })
 export class UsuarioComponent implements OnInit {
   usuario;
-  disciplinas = null;
-  codigo;
-  ano;
-  disciplina;
-  cadastro_ok = false;
-  cadastro_erro = false;
+  id = null;
+  nome = null;
+  email = null;
+  senha = null;
+  datanasc = null;
+  altura = null;
+  peso = null;
+  sexo = null;
 
-  constructor(private usuarioService: AuthService) {
-  }
+  editar_ok = false;
+  editar_erro = false;
+
+  constructor(private usuarioService: AuthService,
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit() {
-    this.usuarioService.get()
-      .subscribe(usuario => this.usuario = usuario);
-    this.usuario = this.usuarioService.get();
+    this.id = parseInt(this.route.snapshot.paramMap.get('id'));
+    this.usuarioService.getuser(this.id)
+    .subscribe(usuario => { 
+              this.nome = usuario.nome;
+              this.email = usuario.email;
+              this.senha = usuario.senha;
+              this.datanasc = usuario.datanasc;
+              this.altura = usuario.altura;
+              this.peso = usuario.peso;
+              this.sexo = usuario.sexo;
+            }
+    );
   }
 
-  salvar() {
-    this.usuarioService.get()
-      .subscribe(
-        turma => {
-          this.limpar();
-          this.cadastro_ok = true;
-        },
-        erro => {
-          this.cadastro_erro = true;
-          this.cadastro_ok = false;
-        }
-      );
-  }
-
-  limpar() {
-    this.codigo = null;
-    this.ano = null;
-    this.disciplina = null;
-    this.cadastro_ok = false;
-    this.cadastro_erro = false;
+  editar() {
+    this.usuarioService.updateUser(this.id, this.nome, this.email, this.senha, this.datanasc, this.altura, this.peso, this.sexo)
+    .subscribe(usuario => {
+      this.editar_ok = true;
+      this.editar_erro = false;
+    },
+    erro => {
+      this.editar_ok = false;
+      this.editar_erro = true;
+    });
   }
 }
